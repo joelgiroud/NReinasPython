@@ -1,6 +1,5 @@
 %
 :- use_module(library(socket)).
-
 :- consult(reinas).
 
 servidor:-
@@ -12,16 +11,14 @@ servidor:-
 
 dispatch(AcceptFd):-
     tcp_accept(AcceptFd, Socket, Peer),
-    process_client(Socket, Peer).
-    thread_create(process_client(Socket, Peer), _, [ detached(true)]).
+    thread_create(process_client(Socket, Peer), _, [detached(true)]),
     dispatch(AcceptFd). % Con esta linea se pueden atender muchas llamadas
-    % Sin ella solo se atiende una llamada
 
 process_client(Socket, Peer) :-
     write(' Recibi llamada de: '), write(Peer), nl,
     setup_call_cleanup(
         tcp_open_socket(Socket, StreamPair),
-        doService(Peer, StreamPair),  % Actualizado: se pasa Peer como primer argumento
+        doService(Peer, StreamPair),  % Se pasa Peer como primer argumento
         close(StreamPair)).
 
 doService(ClientIP, Stream):-
