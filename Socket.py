@@ -45,7 +45,7 @@ while True:
 
 print(reply.decode())
 
-fin = '[].\nfin.\n'
+fin = '[].\nfin'
 s.sendall(fin.encode('ascii'))
 res = s.recv(256)
 print(res.decode())
