@@ -47,4 +47,6 @@ Abre una segunda terminal independiente y ejecuta el script del cliente para man
     python Socket.py
 ```
 
-
+# Capturas de pantalla (screenshots)
+![Ss_1](https://github.com/joelgiroud/NReinasPython/blob/main/Screenshots/SS1.png)
+![Ss_2](https://github.com/joelgiroud/NReinasPython/blob/main/Screenshots/SS2.png)
